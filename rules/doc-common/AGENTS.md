@@ -1,0 +1,6 @@
+# Agent guidelines
+
+- Always create/edit comments/docstrings based on the programming language to be dealt with be it a file, function or top level variable.
+- Use descriptive variable and function names as per the convention of the programming language in use.
+- Make sure to modularise the implementation into small enough functions with clear seperated concerns. Do not modularise with sectioned comments but separated functions instead.
+- Before making any change see if the functionality asked to do already exists or not from the functions in the same file or not. If there is none only then implement a new function.
