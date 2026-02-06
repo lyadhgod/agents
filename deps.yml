@@ -1,0 +1,109 @@
+react:
+    doc-common:
+    javascript:
+        optional: true
+    typescript:
+        optional: true
+
+javscript:
+    doc-common:
+
+typescript:
+    doc-common:
+
+ada:
+    doc-common:
+
+bash:
+    doc-common:
+
+c:
+    doc-common:
+
+cpp:
+    doc-common:
+
+csharp:
+    doc-common:
+
+clojure:
+    doc-common:
+
+cobol:
+    doc-common:
+
+dart:
+    doc-common:
+
+elixir:
+    doc-common:
+
+elm:
+    doc-common:
+
+erlang:
+    doc-common:
+
+go:
+    doc-common:
+
+groovy:
+    doc-common:
+
+haskell:
+    doc-common:
+
+java:
+    doc-common:
+
+julia:
+    doc-common:
+
+kotlin:
+    doc-common:
+
+lua:
+    doc-common:
+
+matlab:
+    doc-common:
+
+perl:
+    doc-common:
+
+php:
+    doc-common:
+
+python:
+    doc-common:
+
+r:
+    doc-common:
+
+ruby:
+    doc-common:
+
+rust:
+    doc-common:
+
+scala:
+    doc-common:
+
+sql:
+    doc-common:
+
+swift:
+    doc-common:
+
+brainfuck:
+    undoc-common:
+
+malbolge:
+    undoc-common:
+
+ook:
+    undoc-common:
+
+doc-common:
+
+undoc-common:
