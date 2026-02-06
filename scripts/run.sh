@@ -5,6 +5,7 @@ script_dir=$(cd "$(dirname "$0")" && pwd)
 root_dir=$(cd "$script_dir/.." && pwd)
 deps_file="$root_dir/deps.yml"
 rules_dir="$root_dir/rules"
+start_dir=$(pwd)
 
 # Ensure deps.yml and rules/ are present next to the script.
 if [ ! -f "$deps_file" ]; then
@@ -17,16 +18,49 @@ if [ ! -d "$rules_dir" ]; then
     exit 1
 fi
 
-# Ask for the project root, default to current directory, and resolve to an absolute path.
-printf "Project location (default=pwd): "
-IFS= read -r project_path
-if [ -z "$project_path" ]; then
-    project_path="."
-fi
+# Parse CLI options for source/output (default: current directory).
+project_path="."
+output_root=""
+while [ $# -gt 0 ]; do
+    case "$1" in
+        -s|--source)
+            project_path=${2:-}
+            shift 2
+            ;;
+        -o|--output)
+            output_root=${2:-}
+            shift 2
+            ;;
+        -h|--help)
+            echo "Usage: $0 [-s|--source <path>] [-o|--output <path>]"
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $1"
+            echo "Usage: $0 [-s|--source <path>] [-o|--output <path>]"
+            exit 1
+            ;;
+    esac
+done
 
 case "$project_path" in
     ~|~/*) project_path="$HOME${project_path#~}" ;;
 esac
+
+case "$project_path" in
+    /*) ;;
+    *) project_path="$start_dir/$project_path" ;;
+esac
+
+if [ -n "$output_root" ]; then
+    case "$output_root" in
+        ~|~/*) output_root="$HOME${output_root#~}" ;;
+    esac
+    case "$output_root" in
+        /*) ;;
+        *) output_root="$start_dir/$output_root" ;;
+    esac
+fi
 
 if ! project_path=$(cd "$project_path" 2>/dev/null && pwd); then
     echo "Project doesn't exist."
@@ -121,7 +155,20 @@ if [ -z "$selected_langs" ]; then
 fi
 
 # Collect every distinct filename present in the selected rules folders.
-output_dir="$project_path/rules-output"
+if [ -z "$output_root" ]; then
+    output_root="$project_path"
+else
+    if ! mkdir -p "$output_root"; then
+        echo "Unable to create output path."
+        exit 1
+    fi
+    if ! output_root=$(cd "$output_root" 2>/dev/null && pwd); then
+        echo "Output path doesn't exist."
+        exit 1
+    fi
+fi
+
+output_dir="$output_root"
 mkdir -p "$output_dir"
 
 file_list=$(for lang in $selected_langs; do
