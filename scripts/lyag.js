@@ -225,7 +225,7 @@ async function concatenateRules(outputDir, langs, filenames) {
             continue;
         }
         const outFile = path.join(outputDir, filename);
-        await fsp.writeFile(outFile, "");
+        await fsp.writeFile(outFile, "# lyag guidelines\n\n");
         for (const lang of langs) {
             if (!lang) {
                 continue;
@@ -237,7 +237,8 @@ async function concatenateRules(outputDir, langs, filenames) {
                 continue;
             }
             const content = await fsp.readFile(ruleFile, "utf8");
-            await fsp.appendFile(outFile, content + "\n\n");
+            const header = `## lyag ${lang} guidelines\n\n`;
+            await fsp.appendFile(outFile, header + content + "\n\n");
         }
     }
 }

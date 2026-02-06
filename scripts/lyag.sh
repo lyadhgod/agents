@@ -163,12 +163,14 @@ run_main_operations() {
         [ -z "$filename" ] && continue
         out_file="$output_dir/$filename"
         : > "$out_file"
+        printf "# lyag guidelines\n\n" >> "$out_file"
 
         for lang in $selected_langs; do
             [ -z "$lang" ] && continue
             src_dir="$rules_dir/$lang"
             rule_file="$src_dir/$filename"
             if [ -r "$rule_file" ]; then
+                printf "## lyag %s guidelines\n\n" "$lang" >> "$out_file"
                 cat "$rule_file" >> "$out_file"
                 printf "\n\n" >> "$out_file"
             fi
