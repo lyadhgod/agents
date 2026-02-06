@@ -1,108 +1,245 @@
 react:
-    doc-common:
-    javascript:
-        optional: true
-    typescript:
-        optional: true
+    ext:
+        - jsx
+        - tsx
+    deps:
+        doc-common:
+        javascript:
+            optional: true
+        typescript:
+            optional: true
 
 javscript:
-    doc-common:
+    ext:
+        - js
+        - mjs
+        - cjs
+    deps:
+        doc-common:
 
 typescript:
-    doc-common:
+    ext:
+        - ts
+        - mts
+        - cts
+    deps:
+        doc-common:
 
 ada:
-    doc-common:
+    ext:
+        - ads
+        - adb
+    deps:
+        doc-common:
 
 bash:
-    doc-common:
+    ext:
+        - sh
+        - bash
+    deps:
+        doc-common:
 
 c:
-    doc-common:
+    ext:
+        - c
+        - h
+    deps:
+        doc-common:
 
 cpp:
-    doc-common:
+    ext:
+        - cpp
+        - cc
+        - cxx
+        - hpp
+        - hh
+        - hxx
+    deps:
+        doc-common:
 
 csharp:
-    doc-common:
+    ext:
+        - cs
+        - csx
+    deps:
+        doc-common:
 
 clojure:
-    doc-common:
+    ext:
+        - clj
+        - cljs
+        - cljc
+    deps:
+        doc-common:
 
 cobol:
-    doc-common:
+    ext:
+        - cob
+        - cbl
+        - cobol
+    deps:
+        doc-common:
 
 dart:
-    doc-common:
+    ext:
+        - dart
+    deps:
+        doc-common:
 
 elixir:
-    doc-common:
+    ext:
+        - ex
+        - exs
+    deps:
+        doc-common:
 
 elm:
-    doc-common:
+    ext:
+        - elm
+    deps:
+        doc-common:
 
 erlang:
-    doc-common:
+    ext:
+        - erl
+        - hrl
+    deps:
+        doc-common:
 
 go:
-    doc-common:
+    ext:
+        - go
+    deps:
+        doc-common:
 
 groovy:
-    doc-common:
+    ext:
+        - groovy
+        - gvy
+        - gy
+        - gsh
+    deps:
+        doc-common:
 
 haskell:
-    doc-common:
+    ext:
+        - hs
+        - lhs
+    deps:
+        doc-common:
 
 java:
-    doc-common:
+    ext:
+        - java
+    deps:
+        doc-common:
 
 julia:
-    doc-common:
+    ext:
+        - jl
+    deps:
+        doc-common:
 
 kotlin:
-    doc-common:
+    ext:
+        - kt
+        - kts
+    deps:
+        doc-common:
 
 lua:
-    doc-common:
+    ext:
+        - lua
+    deps:
+        doc-common:
 
 matlab:
-    doc-common:
+    ext:
+        - m
+    deps:
+        doc-common:
 
 perl:
-    doc-common:
+    ext:
+        - pl
+        - pm
+        - t
+    deps:
+        doc-common:
 
 php:
-    doc-common:
+    ext:
+        - php
+        - phtml
+    deps:
+        doc-common:
 
 python:
-    doc-common:
+    ext:
+        - py
+        - pyw
+        - pyi
+    deps:
+        doc-common:
 
 r:
-    doc-common:
+    ext:
+        - r
+        - R
+    deps:
+        doc-common:
 
 ruby:
-    doc-common:
+    ext:
+        - rb
+        - rake
+    deps:
+        doc-common:
 
 rust:
-    doc-common:
+    ext:
+        - rs
+    deps:
+        doc-common:
 
 scala:
-    doc-common:
+    ext:
+        - scala
+        - sc
+    deps:
+        doc-common:
 
 sql:
-    doc-common:
+    ext:
+        - sql
+    deps:
+        doc-common:
 
 swift:
-    doc-common:
+    ext:
+        - swift
+    deps:
+        doc-common:
 
 brainfuck:
-    undoc-common:
+    ext:
+        - bf
+        - b
+    deps:
+        undoc-common:
 
 malbolge:
-    undoc-common:
+    ext:
+        - mb
+        - mal
+    deps:
+        undoc-common:
 
 ook:
-    undoc-common:
+    ext:
+        - ook
+    deps:
+        undoc-common:
 
 doc-common:
 
