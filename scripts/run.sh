@@ -6,21 +6,8 @@ root_dir=$(cd "$script_dir/.." && pwd)
 deps_file="$root_dir/deps.yml"
 rules_dir="$root_dir/rules"
 start_dir=$(pwd)
-usage_text=$(cat <<'EOF'
-Generate combined rule bundles based on a project source tree.
-
-Usage:
-    run.sh gen [-s|--source <path>] [-o|--output <path>]
-
-Commands:
-    gen        Scan the source tree and generate rule bundles.
-
-Options:
-    -s, --source <path>   Project root to scan (default: current directory).
-    -o, --output <path>   Output directory for bundles (default: source path).
-    -h, --help            Show this help.
-EOF
-)
+help_file="$script_dir/help.txt"
+usage_text=$(cat "$help_file")
 
 print_usage() {
     echo "$usage_text"

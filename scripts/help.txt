@@ -1,0 +1,12 @@
+Generate combined rule bundles based on a project source tree.
+
+Usage:
+    run gen [-s|--source <path>] [-o|--output <path>]
+
+Commands:
+    gen        Scan the source tree and generate rule bundles.
+
+Options:
+    -s, --source <path>   Project root to scan (default: current directory).
+    -o, --output <path>   Output directory for bundles (default: source path).
+    -h, --help            Show this help.
