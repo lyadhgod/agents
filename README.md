@@ -6,6 +6,8 @@ In the era of Agentic programming we often see agents building sphagetti code wi
 
 ### Source
 
+#### Shell
+
 Clone this repo and run the script locally:
 
 ```sh
