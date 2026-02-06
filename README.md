@@ -6,11 +6,22 @@ In the era of Agentic programming we often see agents building sphagetti code wi
 
 ### Source
 
-#### Shell
-
-Clone this repo and run the script locally:
+Clone this repo locally:
 
 ```sh
 git clone https://github.com/lyadhgod/agents.git
-./agents/scripts/run.sh gen -s <source path> -o <output path>
+```
+
+and then run:
+
+##### Shell
+
+```sh
+./agents/scripts/lyag.sh gen -s <source path> -o <output path>
+```
+
+##### Nodejs
+
+```sh
+./agents/scripts/lyag.js gen -s <source path> -o <output path>
 ```
