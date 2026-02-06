@@ -1,0 +1,5 @@
+- Avoid SELECT *; list required columns explicitly.
+- Use parameterized queries to prevent injection.
+- Prefer explicit JOIN syntax over implicit joins.
+- Wrap multi-step changes in transactions.
+- Add indexes for frequent filters and joins.

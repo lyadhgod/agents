@@ -1,0 +1,5 @@
+- Avoid creating atoms from external input.
+- Use tail recursion for looping constructs.
+- Prefer OTP behaviors such as gen_server.
+- Use pattern matching for control flow.
+- Keep processes isolated; avoid shared mutable state.

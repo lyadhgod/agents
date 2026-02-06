@@ -1,0 +1,5 @@
+- Enable strict mode in tsconfig.
+- Avoid any; use unknown for untrusted data.
+- Use type guards and narrowing for safety.
+- Prefer as const for literal inference.
+- Keep types aligned with runtime validation.

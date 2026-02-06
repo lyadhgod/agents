@@ -1,0 +1,5 @@
+- Use const/let; avoid var.
+- Prefer strict equality (===) over ==.
+- Handle promise rejections; use async/await.
+- Avoid implicit globals; use modules.
+- Validate external data before use.

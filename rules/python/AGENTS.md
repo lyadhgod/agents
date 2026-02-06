@@ -1,0 +1,5 @@
+- Avoid mutable default arguments.
+- Use type hints for public APIs.
+- Prefer context managers for resources.
+- Use pathlib for filesystem paths.
+- Catch specific exceptions; avoid bare except.

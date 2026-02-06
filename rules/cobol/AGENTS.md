@@ -1,0 +1,5 @@
+- Use copybooks for shared record layouts.
+- Avoid ALTER; prefer PERFORM with explicit sections.
+- Initialize records before use.
+- Keep WORKING-STORAGE minimal and well-typed.
+- Use meaningful level names for data items.

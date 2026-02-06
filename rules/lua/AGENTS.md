@@ -1,0 +1,5 @@
+- Use local variables to avoid accidental globals.
+- Use tables consistently for records and arrays.
+- Check errors from pcall and I/O calls.
+- Avoid mutating metatables in shared libraries.
+- Prefer numeric for loops in hot paths.

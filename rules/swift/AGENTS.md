@@ -1,0 +1,5 @@
+- Prefer let and value types like struct.
+- Avoid force unwraps; use guard and optional binding.
+- Use Codable for serialization where possible.
+- Use Result for error propagation.
+- Keep UI updates on the main thread.

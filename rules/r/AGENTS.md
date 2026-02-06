@@ -1,0 +1,5 @@
+- Avoid attach; use explicit namespaces.
+- Use vectorized operations where reasonable.
+- Use set.seed for reproducible randomness.
+- Handle NA values explicitly.
+- Keep data wrangling pipelines readable and linear.

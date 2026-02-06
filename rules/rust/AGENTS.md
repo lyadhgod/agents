@@ -1,0 +1,5 @@
+- Avoid unwrap/expect outside tests; propagate with ?.
+- Use Result/Option for explicit error handling.
+- Prefer iterators over indexing when possible.
+- Use clippy and rustfmt to keep code consistent.
+- Minimize unsafe blocks; document invariants when used.

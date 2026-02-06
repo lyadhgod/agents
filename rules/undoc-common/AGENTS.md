@@ -1,0 +1,4 @@
+- Apply doc-common rules when language-specific guidance is missing.
+- State assumptions explicitly when requirements are unclear.
+- Prefer safe defaults over clever shortcuts.
+- Keep examples small and executable.

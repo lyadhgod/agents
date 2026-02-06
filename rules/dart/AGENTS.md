@@ -1,0 +1,5 @@
+- Prefer const/final for immutability.
+- Avoid dynamic; use strong typing and generics.
+- Use null safety; avoid ! unless proven safe.
+- Use async/await for futures; avoid long then chains.
+- Prefer late only when initialization is guaranteed.

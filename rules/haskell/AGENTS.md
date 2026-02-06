@@ -1,0 +1,5 @@
+- Avoid partial functions like head or fromJust in production paths.
+- Use Maybe/Either for error handling.
+- Keep type signatures for public functions.
+- Prefer newtype over type when distinct.
+- Use foldl' for strict folds where needed.

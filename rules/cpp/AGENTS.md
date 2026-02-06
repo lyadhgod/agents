@@ -1,0 +1,5 @@
+- Prefer RAII and smart pointers; avoid raw new/delete.
+- Follow the rule of zero and default special members.
+- Use const/constexpr to express intent.
+- Prefer STL containers and algorithms over manual loops.
+- Avoid ownership ambiguity; use references or std::unique_ptr.

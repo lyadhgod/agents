@@ -1,0 +1,5 @@
+- Use strict and warnings pragmas.
+- Prefer lexical variables with my.
+- Avoid global variables and symbolic references.
+- Use modules instead of copy-pasting code.
+- Use three-arg open and check results.

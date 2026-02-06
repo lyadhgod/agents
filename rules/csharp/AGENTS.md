@@ -1,0 +1,5 @@
+- Use using or await using for disposable resources.
+- Prefer async/await over blocking Task.Result or Wait().
+- Enable nullable reference types and handle nulls explicitly.
+- Use record or record struct for value semantics.
+- Prefer IReadOnlyList/IEnumerable in public APIs.

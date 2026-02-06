@@ -1,0 +1,5 @@
+- Use const and size_t where appropriate for intent and safety.
+- Initialize variables; avoid uninitialized reads.
+- Check return values for I/O and allocation calls.
+- Prefer bounded functions like snprintf to avoid overflow.
+- Free resources on all paths to prevent leaks.

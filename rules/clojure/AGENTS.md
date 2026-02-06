@@ -1,0 +1,5 @@
+- Prefer immutable data and pure functions.
+- Use threading macros (->, ->>) to improve readability.
+- Avoid def inside functions; keep locals with let.
+- Use namespaced keywords for clarity.
+- Prefer mapv when an eager vector result is needed.

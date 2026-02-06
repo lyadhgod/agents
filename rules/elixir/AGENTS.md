@@ -1,0 +1,5 @@
+- Use pattern matching and guards instead of nested conditionals.
+- Keep data transformations pure; isolate side effects.
+- Use with for sequential error handling.
+- Add @spec for public functions.
+- Prefer Enum for eager and Stream for lazy pipelines.

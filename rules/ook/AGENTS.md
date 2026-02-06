@@ -1,0 +1,4 @@
+- Document tape layout and pointer movement.
+- Keep loops balanced and well-commented.
+- Initialize cells before use.
+- Provide sample input and output for verification.

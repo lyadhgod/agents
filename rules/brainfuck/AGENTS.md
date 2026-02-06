@@ -1,0 +1,4 @@
+- Document tape layout and pointer invariants in comments.
+- Keep pointer movements balanced to avoid out-of-bounds access.
+- Use clear loop patterns and avoid self-modifying loops.
+- Initialize cells explicitly before use.

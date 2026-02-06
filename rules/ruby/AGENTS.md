@@ -1,0 +1,5 @@
+- Prefer each/map over for loops.
+- Use safe navigation (&.) for nil handling.
+- Avoid monkey patching core classes in shared code.
+- Use Bundler and a Gemfile for dependencies.
+- Freeze constants and strings when appropriate.

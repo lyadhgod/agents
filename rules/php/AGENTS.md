@@ -1,0 +1,5 @@
+- Enable strict types with declare(strict_types=1);
+- Use prepared statements for SQL access.
+- Prefer type hints and return types.
+- Avoid eval and dynamic includes.
+- Use namespaces and autoloading.

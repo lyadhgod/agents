@@ -1,0 +1,5 @@
+- Prefer immutable collections and val.
+- Use Option instead of null.
+- Keep match exhaustive with sealed traits.
+- Avoid implicit conversions; prefer extension methods.
+- Use Either for error handling where appropriate.

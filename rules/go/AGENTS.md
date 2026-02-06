@@ -1,0 +1,5 @@
+- Always check returned errors.
+- Use context.Context for cancellations and timeouts.
+- Avoid global state; pass dependencies explicitly.
+- Use defer for cleanup of resources.
+- Prefer small interfaces and simple structs.

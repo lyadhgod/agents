@@ -1,0 +1,5 @@
+- Use try-with-resources for closeable resources.
+- Avoid null in APIs; use Optional for absence.
+- Prefer interfaces over concrete types in signatures.
+- Use immutable collections where possible.
+- Implement equals, hashCode, and toString consistently.

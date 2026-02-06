@@ -1,0 +1,4 @@
+- Document instruction layout and memory assumptions.
+- Keep pointer and cell invariants explicit in comments.
+- Avoid self-modifying code unless required.
+- Add test input and output examples for verification.

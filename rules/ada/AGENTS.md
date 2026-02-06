@@ -1,0 +1,5 @@
+- Prefer strong typing with range constraints to prevent invalid values.
+- Avoid Unchecked_Conversion; use safe conversions and subtype checks.
+- Encapsulate logic in packages; keep specs minimal and stable.
+- Use pre/postconditions and pragma Assert for contracts.
+- Keep tasking predictable; avoid uncontrolled shared state.

@@ -1,0 +1,5 @@
+- Use @CompileStatic for performance and safety.
+- Prefer explicit types in public APIs.
+- Use safe navigation (?.) and Elvis (?:) thoughtfully.
+- Avoid dynamic metaclass changes in production code.
+- Prefer @Immutable for data objects.

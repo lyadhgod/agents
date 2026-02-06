@@ -1,0 +1,5 @@
+- Start scripts with set -euo pipefail when appropriate.
+- Quote variables and use "$@" to forward arguments.
+- Prefer $(...) over backticks for command substitution.
+- Check exit codes for critical commands.
+- Avoid eval and unbounded word splitting.

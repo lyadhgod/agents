@@ -1,0 +1,5 @@
+- Prefer val over var.
+- Avoid !!; use safe calls and let instead.
+- Use data classes for immutable data.
+- Keep coroutines structured; avoid GlobalScope.
+- Use sealed classes for exhaustive when.

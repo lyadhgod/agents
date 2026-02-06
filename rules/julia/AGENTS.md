@@ -1,0 +1,5 @@
+- Avoid global variables in performance-critical code.
+- Write type-stable functions.
+- Preallocate arrays in tight loops.
+- Use broadcasting with dot syntax for elementwise operations.
+- Prefer @views to avoid copies when slicing.

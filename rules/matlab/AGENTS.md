@@ -1,0 +1,5 @@
+- Preallocate arrays before loops.
+- Prefer vectorized operations over explicit loops when clear.
+- Avoid eval; use function handles instead.
+- Use functions instead of scripts for reuse.
+- Use clearvars instead of clear all.

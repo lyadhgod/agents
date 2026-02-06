@@ -1,0 +1,5 @@
+- Keep view pure and deterministic.
+- Use custom types to model the domain.
+- Avoid Debug in committed code.
+- Keep update exhaustive over Msg cases.
+- Use Cmd/Sub for effects; avoid hidden side effects.

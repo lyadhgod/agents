@@ -2,3 +2,11 @@
 - Use descriptive variable and function names as per the convention of the programming language in use.
 - Make sure to modularise the implementation into small enough functions with clear seperated concerns. Do not modularise with sectioned comments but separated functions instead.
 - Before making any change see if the functionality asked to do already exists or not from the functions in the same file or not. If there is none only then implement a new function.
+- Validate inputs at boundaries and fail fast with clear errors.
+- Handle errors explicitly; do not swallow exceptions.
+- Prefer pure functions and minimize hidden side effects.
+- Avoid duplication; reuse existing helpers and patterns.
+- Write tests for new behavior and regressions when feasible.
+- Prefer immutable data unless mutability is required.
+- Keep dependencies minimal and remove unused ones.
+- Optimize only after correctness; avoid premature optimization.
