@@ -10,7 +10,7 @@ const rootDir = path.resolve(scriptDir, "..");
 const depsFile = path.join(rootDir, "deps.yml");
 const rulesDir = path.join(rootDir, "rules");
 const startDir = process.cwd();
-const helpFile = path.join(scriptDir, "help.txt");
+const helpFile = path.join(rootDir, "assets", "help.txt");
 const usageText = fs.readFileSync(helpFile, "utf8");
 
 function printUsage(usage = usageText) {

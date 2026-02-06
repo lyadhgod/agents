@@ -6,7 +6,7 @@ root_dir=$(cd "$script_dir/.." && pwd)
 deps_file="$root_dir/deps.yml"
 rules_dir="$root_dir/rules"
 start_dir=$(pwd)
-help_file="$script_dir/help.txt"
+help_file="$root_dir/assets/help.txt"
 usage_text=$(cat "$help_file")
 
 print_usage() {
