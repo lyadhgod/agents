@@ -1,0 +1,17 @@
+{
+  "name": "lyag",
+  "version": "0.1.0",
+  "description": "Generate language-specific AGENTS guideline bundles.",
+  "type": "commonjs",
+  "main": "scripts/lyag.js",
+  "types": "scripts/lyag.d.ts",
+  "bin": {
+    "lyag": "scripts/lyag.js"
+  },
+  "keywords": [
+    "cli",
+    "agents",
+    "ai"
+  ],
+  "license": "MIT"
+}
