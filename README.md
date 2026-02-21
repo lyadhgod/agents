@@ -4,6 +4,21 @@ In the era of Agentic programming we often see agents building sphagetti code wi
 
 ## Installation
 
+### NPM
+
+#### global machine cli
+
+```sh
+npm i -g @lyadh_god/lyag
+lyag gen -s <source path> -o <output path>
+```
+
+#### npx
+
+```sh
+npx lyag gen -s <source path> -o <output path>
+```
+
 ### Source
 
 Clone this repo locally:
