@@ -16,7 +16,7 @@ lyag gen -s <source path> -o <output path>
 #### npx
 
 ```sh
-npx lyag gen -s <source path> -o <output path>
+npx @lyadh_god/lyag gen -s <source path> -o <output path>
 ```
 
 ### Source
