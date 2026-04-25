@@ -13,6 +13,12 @@ const startDir = process.cwd();
 const helpFile = path.join(rootDir, "assets", "help.txt");
 const usageText = fs.readFileSync(helpFile, "utf8");
 
+const USER_BLOCK_START = "<!-- lyag:user-instructions:start -->";
+const USER_BLOCK_END = "<!-- lyag:user-instructions:end -->";
+const GENERATED_BLOCK_START = "<!-- lyag:generated:start -->";
+const GENERATED_BLOCK_END = "<!-- lyag:generated:end -->";
+const GENERATED_SECTION_HEADING = "## lyag generated guidelines";
+
 function printUsage(usage = usageText) {
     process.stdout.write(usage);
 }
@@ -219,27 +225,142 @@ async function collectRuleFilenames(langs) {
     return Array.from(filenames).sort();
 }
 
+function extractPreservedUserContent(existingContent) {
+    if (!existingContent) {
+        return null;
+    }
+
+    const userStartIdx = existingContent.indexOf(USER_BLOCK_START);
+    const userEndIdx = existingContent.indexOf(USER_BLOCK_END);
+    if (userStartIdx !== -1 && userEndIdx !== -1 && userEndIdx > userStartIdx) {
+        const start = userStartIdx + USER_BLOCK_START.length;
+        return existingContent.slice(start, userEndIdx).replace(/^\n/, "").replace(/\n$/, "");
+    }
+
+    return null;
+}
+
+function stripGeneratedBlock(existingContent) {
+    if (!existingContent) {
+        return "";
+    }
+
+    const generatedStartIdx = existingContent.indexOf(GENERATED_BLOCK_START);
+    const generatedEndIdx = existingContent.indexOf(GENERATED_BLOCK_END);
+    if (generatedStartIdx === -1 || generatedEndIdx === -1 || generatedEndIdx < generatedStartIdx) {
+        return existingContent.replace(/\s+$/, "");
+    }
+
+    let removeStartIdx = generatedStartIdx;
+    const headingIdx = existingContent.lastIndexOf(GENERATED_SECTION_HEADING, generatedStartIdx);
+    if (headingIdx !== -1) {
+        const headingEndIdx = headingIdx + GENERATED_SECTION_HEADING.length;
+        const betweenHeadingAndBlock = existingContent.slice(headingEndIdx, generatedStartIdx);
+        if (/^\s*$/.test(betweenHeadingAndBlock)) {
+            removeStartIdx = headingIdx;
+        }
+    }
+
+    const before = existingContent.slice(0, removeStartIdx).replace(/\s+$/, "");
+    const after = existingContent.slice(generatedEndIdx + GENERATED_BLOCK_END.length).replace(/^\s+/, "");
+
+    if (!before) {
+        return after;
+    }
+    if (!after) {
+        return before;
+    }
+    return `${before}\n\n${after}`;
+}
+
+function buildGeneratedSection(generatedContent) {
+    return [
+        GENERATED_SECTION_HEADING,
+        "",
+        GENERATED_BLOCK_START,
+        generatedContent,
+        GENERATED_BLOCK_END,
+    ].join("\n");
+}
+
+async function buildGeneratedRuleContent(langs, filename) {
+    let generated = "";
+
+    for (const lang of langs) {
+        if (!lang) {
+            continue;
+        }
+        const ruleFile = path.join(rulesDir, lang, filename);
+        try {
+            await fsp.access(ruleFile, fs.constants.R_OK);
+        } catch (error) {
+            continue;
+        }
+        const content = await fsp.readFile(ruleFile, "utf8");
+        const body = content.replace(/\s+$/, "");
+        generated += `## lyag ${lang} guidelines\n\n${body}\n\n`;
+    }
+
+    return generated.replace(/\s+$/, "");
+}
+
+function buildMergedOutput(existingContent, generatedContent) {
+    const preservedUser = extractPreservedUserContent(existingContent);
+    const baseContent = stripGeneratedBlock(existingContent);
+    const generatedSection = buildGeneratedSection(generatedContent);
+
+    if (preservedUser === null) {
+        if (!baseContent) {
+            return [
+                "# lyag guidelines",
+                "",
+                generatedSection,
+                "",
+            ].join("\n");
+        }
+
+        return [
+            baseContent,
+            "",
+            generatedSection,
+            "",
+        ].join("\n");
+    }
+
+    return [
+        baseContent || [
+            "# lyag guidelines",
+            "",
+            "## my agents instructions",
+            "",
+            USER_BLOCK_START,
+            preservedUser,
+            USER_BLOCK_END,
+        ].join("\n"),
+        "",
+        generatedSection,
+        "",
+    ].join("\n");
+}
+
 async function concatenateRules(outputDir, langs, filenames) {
     for (const filename of filenames) {
         if (!filename) {
             continue;
         }
         const outFile = path.join(outputDir, filename);
-        await fsp.writeFile(outFile, "# lyag guidelines\n\n");
-        for (const lang of langs) {
-            if (!lang) {
-                continue;
+        let existingContent = "";
+        try {
+            existingContent = await fsp.readFile(outFile, "utf8");
+        } catch (error) {
+            if (!(error && error.code === "ENOENT")) {
+                throw error;
             }
-            const ruleFile = path.join(rulesDir, lang, filename);
-            try {
-                await fsp.access(ruleFile, fs.constants.R_OK);
-            } catch (error) {
-                continue;
-            }
-            const content = await fsp.readFile(ruleFile, "utf8");
-            const header = `## lyag ${lang} guidelines\n\n`;
-            await fsp.appendFile(outFile, header + content + "\n\n");
         }
+
+        const generatedContent = await buildGeneratedRuleContent(langs, filename);
+        const mergedOutput = buildMergedOutput(existingContent, generatedContent);
+        await fsp.writeFile(outFile, mergedOutput);
     }
 }
 
