@@ -29,12 +29,6 @@ git clone https://github.com/lyadhgod/agents.git
 
 and then run:
 
-##### Shell
-
-```sh
-./agents/scripts/lyag.sh gen -s <source path> -o <output path>
-```
-
 ##### Nodejs
 
 ```sh
