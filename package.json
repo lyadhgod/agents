@@ -1,6 +1,6 @@
 {
   "name": "@lyadh_god/lyag",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Generate language-specific AGENTS guideline bundles.",
   "type": "commonjs",
   "main": "scripts/lyag.js",

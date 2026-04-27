@@ -17,7 +17,7 @@ const USER_BLOCK_START = "<!-- lyag:user-instructions:start -->";
 const USER_BLOCK_END = "<!-- lyag:user-instructions:end -->";
 const GENERATED_BLOCK_START = "<!-- lyag:generated:start -->";
 const GENERATED_BLOCK_END = "<!-- lyag:generated:end -->";
-const GENERATED_SECTION_HEADING = "## lyag generated guidelines";
+const GENERATED_SECTION_HEADING = "# lyag generated guidelines";
 
 function printUsage(usage = usageText) {
     process.stdout.write(usage);
